@@ -5,9 +5,9 @@ import Footer from '../components/shared/Footer';
 
 const Root = () => {
     return (
-        <div>
-            <Navber></Navber>
-            <Outlet></Outlet>
+        <div className='container px-6 mx-auto'>
+            <div className='my-2'><Navber></Navber></div>
+            <div className='my-2'><Outlet></Outlet></div>
             <Footer></Footer>
         </div>
     );
