@@ -1,9 +1,9 @@
-
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import logo from '../../../assets/New folder/logo.png'
 import { NavLink } from 'react-router';
 
-const Login = () => {
+const Register = () => {
     const {
         register,
         handleSubmit,
@@ -23,13 +23,15 @@ const Login = () => {
                     </div>
                     <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)} className="fieldset">
+                            <label className="label">Name</label>
+                            <input type="text" {...register('name')} className="input" placeholder="User Name" />
                             <label className="label">Email</label>
                             <input type="email" {...register('email')} className="input" placeholder="Email" />
                             <label className="label">Password</label>
                             <input type="password" {...register('password')} className="input" placeholder="Password" />
                             <div><a className="link link-hover">Forgot password?</a></div>
-                            <button className="btn bg-[#ACC857] mt-4">Login</button>
-                            <h1>Do Not Have Any Account? <NavLink to={'/register'}><span className='text-sm font-semibold text-[#ACC857]'>Register</span></NavLink></h1>
+                            <button className="btn bg-[#ACC857] mt-4">SignUp</button>
+                            <h1>Already Have An Account? <NavLink to={'/login'}><span className='text-sm font-semibold text-[#ACC857]'>SignIn</span></NavLink></h1>
                             <br />
                             {/* Google */}
                             <button className="btn bg-white text-black border-[#e5e5e5]">
@@ -44,4 +46,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
