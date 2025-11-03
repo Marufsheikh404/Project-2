@@ -5,6 +5,7 @@ import Services from '../Services';
 import Collaspe from '../Collaspe';
 import Brand from '../Brand';
 import Features from '../Features';
+import InfoCard from '../InfoCard';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
            <Services></Services>
            <Collaspe></Collaspe>
            <Features></Features>
+           <InfoCard></InfoCard>
         </div>
     );
 };
