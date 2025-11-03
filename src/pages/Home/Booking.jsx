@@ -15,7 +15,7 @@ const Booking = () => {
                 {books.map((book, index) => (
                     <div
                         key={index}
-                        className="flex flex-col items-center text-center bg-white shadow-md rounded-xl p-5 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                        className="flex flex-col items-center text-center bg-white shadow-md rounded-tr-4xl rounded-bl-4xl p-5 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                     >
                         <img
                             src={logo}
