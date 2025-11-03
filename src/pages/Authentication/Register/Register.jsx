@@ -1,8 +1,8 @@
-import React from 'react';
+
 import { useForm } from 'react-hook-form';
 import logo from '../../../assets/New folder/logo.png'
-import { NavLink } from 'react-router';
 import useAuth from '../../../Hook/useAuth';
+import { NavLink } from 'react-router';
 
 const Register = () => {
     const {createUser,setLoading} = useAuth();
@@ -12,15 +12,17 @@ const Register = () => {
         reset
     } = useForm()
     const onSubmit = (data) => {
+        setLoading(true)
         createUser(data.email, data.password)
         .then(result =>{
             const user = result.user
             console.log(user)
+            reset()
         })
         .catch(error=>{
             console.log(error)
-        });
-        reset()
+        })
+        .finally(()=>setLoading(false))
     }
     return (
         <div className="hero bg-base-200 min-h-screen">

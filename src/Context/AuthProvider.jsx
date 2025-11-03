@@ -18,14 +18,14 @@ const AuthProvider = ({children}) => {
     };
 
     useEffect(()=>{
-        const unsubcribe = onAuthStateChanged((auth, currentUser)=>{
+        const unsubcribe = onAuthStateChanged(auth, currentUser=>{
             console.log('CurrentUser', currentUser);
             setUsers(currentUser);
         })
         return()=>{
             unsubcribe()
         }
-    });
+    },[]);
     const userInfo ={
         loading,
         setLoading,
