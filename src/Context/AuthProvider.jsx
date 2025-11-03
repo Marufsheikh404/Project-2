@@ -21,8 +21,13 @@ const AuthProvider = ({children}) => {
     };
 
     // User LogOut
-    const SignOut =()=>{
-        return signOut(auth)
+    const SignOut = async()=>{
+       try{
+         await signOut(auth)
+       }
+       catch(error){
+        console.log(error)
+       }
     };
 
     // Google Login

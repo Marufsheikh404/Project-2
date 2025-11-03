@@ -34,7 +34,7 @@ const Login = () => {
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col">
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card bg-base-100 w-[400px]  shrink-0 shadow-2xl">
                     <div className='flex'>
                         <img src={logo} alt="logo" />
                         <h1 className='text-2xl font-bold mt-4 -translate-x-3'>Profast</h1>

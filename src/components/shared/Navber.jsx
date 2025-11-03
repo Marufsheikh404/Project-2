@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from '../../assets/New folder/logo.png';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import useAuth from '../../Hook/useAuth';
 
 const Navber = () => {
-    const {signOut}= useAuth();
+    const {SignOut , users}= useAuth();
 
     const handleClick=()=>{
-        signOut()
+        SignOut()
     };
     const links = (
         <>
