@@ -3,20 +3,16 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import SectionTitle from "../../components/shared/SectionTitle";
 
-// import author1 from "../assets/author1.jpg";
-// import author2 from "../assets/author2.jpg";
-// import author3 from "../assets/author3.jpg";
-// import author4 from "../assets/author4.jpg";
-// import author5 from "../assets/author5.jpg";
-// import author6 from "../assets/author6.jpg";
+import author1 from "../../assets/New folder/image-upload-icon.png";
+
 
 const authors = [
-    { id: 1, img: "", name: "Maruf Hasan", title: "Creative Designer" },
-    { id: 2, img: "", name: "Tomas Rahman", title: "Web Developer" },
-    { id: 3, img: "", name: "Sadia Islam", title: "UI/UX Expert" },
-    { id: 4, img: "", name: "Imran Hossain", title: "App Developer" },
-    { id: 5, img: "", name: "Nusrat Jahan", title: "Marketing Lead" },
-    { id: 6, img: "", name: "Tanvir Ahmed", title: "Product Manager" },
+    { id: 1, name: "Maruf Hasan", title: "Creative Designer" },
+    { id: 2, name: "Tomas Rahman", title: "Web Developer" },
+    { id: 3, name: "Sadia Islam", title: "UI/UX Expert" },
+    { id: 4, name: "Imran Hossain", title: "App Developer" },
+    { id: 5, name: "Nusrat Jahan", title: "Marketing Lead" },
+    { id: 6, name: "Tanvir Ahmed", title: "Product Manager" },
 ];
 
 const  Review = () => {
@@ -50,11 +46,11 @@ const  Review = () => {
 
             {/* Carousel */}
             <Slider {...settings}>
-                {authors.map(({ id, img, name, title }) => (
+                {authors.map(({ id, name, title }) => (
                     <div key={id} className="px-4">
                         <div className="bg-white shadow-md w-60 h-30 mb-4 cursor-pointer rounded-tl-4xl rounded-br-4xl p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-300">
                             <img
-                                src={img}
+                                src={author1}
                                 alt={name}
                                 className="w-10 h-10 rounded-full object-cover border-2 border-[#CAEB66]"
                             />
