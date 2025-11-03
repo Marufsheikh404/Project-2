@@ -1,8 +1,14 @@
 import React from 'react';
 import logo from '../../assets/New folder/logo.png';
 import { NavLink } from 'react-router';
+import useAuth from '../../Hook/useAuth';
 
 const Navber = () => {
+    const {signOut}= useAuth();
+
+    const handleClick=()=>{
+        signOut()
+    };
     const links = (
         <>
             <li className='text-sm font-semibold text-[#919191]'>Services</li>
@@ -31,7 +37,9 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end flex gap-4">
-                <NavLink to={'/login'}> <a className="btn text-lg font-semibold rounded-lg">Sign In</a></NavLink>
+                {
+                    users ? <a onClick={handleClick} className="btn text-lg font-semibold rounded-lg">Log~Out</a> : <NavLink to={'/login'}> <a className="btn text-lg font-semibold rounded-lg">Sign In</a></NavLink>
+                }
                 <a className="btn bg-[#CAEB66] text-lg font-semibold rounded-lg">Be a Rider</a>
             </div>
         </div>
