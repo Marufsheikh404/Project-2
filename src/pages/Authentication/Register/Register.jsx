@@ -2,15 +2,24 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import logo from '../../../assets/New folder/logo.png'
 import { NavLink } from 'react-router';
+import useAuth from '../../../Hook/useAuth';
 
 const Register = () => {
+    const {createUser,setLoading} = useAuth();
     const {
         register,
         handleSubmit,
         reset
     } = useForm()
     const onSubmit = (data) => {
-        console.log(data)
+        createUser(data.email, data.password)
+        .then(result =>{
+            const user = result.user
+            console.log(user)
+        })
+        .catch(error=>{
+            console.log(error)
+        });
         reset()
     }
     return (
