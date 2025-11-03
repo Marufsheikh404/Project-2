@@ -6,12 +6,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC3yJ8p19zdJRCuXTxoUL_wyT2BOU4b-zE",
-    authDomain: "nerw-project-83116.firebaseapp.com",
-    projectId: "nerw-project-83116",
-    storageBucket: "nerw-project-83116.firebasestorage.app",
-    messagingSenderId: "55081429306",
-    appId: "1:55081429306:web:aeaf1b625f937dde91c803"
+    apiKey:import.meta.env.VITE_apiKey, 
+    authDomain:import.meta.env.VITE_authDomain, 
+    projectId:import.meta.env.VITE_projectId, 
+    storageBucket:import.meta.env.VITE_storageBucket, 
+    messagingSenderId:import.meta.env.VITE_messagingSenderId, 
+    appId:import.meta.env.VITE_appId, 
 };
 
 // Initialize Firebase
