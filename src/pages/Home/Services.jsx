@@ -14,7 +14,7 @@ const Services = () => {
         <>
             <div className='bg-[#03373D] p-4'>
                  <SectionTitle title={'Our Services'} description={'Enjoy fast, reliable parcel delivery with real-time tracking  and zero hassle.<br/> From personal packages to business shipments — we deliver on time, every time.'}></SectionTitle>
-                <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 justify-items-center items-stretch max-h-screen rounded-md'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 justify-items-center items-center rounded-md'>
                     {
                         services.map((service) => <ServiceCard
                             key={service.id}
