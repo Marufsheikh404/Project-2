@@ -1,17 +1,19 @@
 import React from 'react';
 import { Outlet } from 'react-router';
+import authImg from '../assets/New folder/authImage.png'
 
 const AuthLayout = () => {
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-sm">
-                <figure>
-                    <img
-                        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            <div className="card card-side max-h-screen h-full shadow-sm">
+                <div className="card-body flex-1">
+                    <Outlet></Outlet>
+                </div>
+                <div className='flex-1'>
+                    <img 
+                        className='w-96 h-96 flex justify-center translate-y-12'
+                        src={authImg }
                         alt="Movie" />
-                </figure>
-                <div className="card-body">
-                   <Outlet></Outlet>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/New folder/logo.png';
+import { NavLink } from 'react-router';
 
 const Navber = () => {
     const links = (
@@ -9,7 +10,7 @@ const Navber = () => {
             <li className='text-sm font-semibold text-[#919191]'>About Us</li>
             <li className='text-sm font-semibold text-[#919191]'>Pricing</li>
             <li className='text-sm font-semibold text-[#919191]'>Be a Rider</li>
-        </> 
+        </>
     )
     return (
         <div className="navbar bg-[FFFFFF] shadow-lg">
@@ -19,10 +20,10 @@ const Navber = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                     </div>
                 </div>
-               <div className='flex'>
-                 <img src={logo} alt="logo" />
-                 <h1 className='text-2xl font-bold mt-6'>Profast</h1>
-               </div>
+                <div className='flex'>
+                    <img src={logo} alt="logo" />
+                    <h1 className='text-2xl font-bold mt-6'>Profast</h1>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal gap-6">
@@ -30,8 +31,8 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end flex gap-4">
-                <a className="btn text-lg font-semibold rounded-lg">Sign In</a>
-                 <a className="btn bg-[#CAEB66] text-lg font-semibold rounded-lg">Be a Rider</a>
+                <NavLink to={'/login'}> <a className="btn text-lg font-semibold rounded-lg">Sign In</a></NavLink>
+                <a className="btn bg-[#CAEB66] text-lg font-semibold rounded-lg">Be a Rider</a>
             </div>
         </div>
     );
