@@ -11,7 +11,7 @@ import SectionTitle from '../../components/shared/SectionTitle';
 
 const Brand = () => {
     return (
-        <div>
+        <div className='my-6'>
             <SectionTitle title={"We Have Help Thousands Of Seals Teams"}></SectionTitle>
             <Marquee >
                 <div className='flex items-baseline gap-10'>
