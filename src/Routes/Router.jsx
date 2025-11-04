@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
+import PercelFrom from "../pages/PercelFrom/PercelFrom";
 
 const Router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ const Router = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path:'percel',
+                element:<PercelFrom></PercelFrom>
             }
         ]
     },

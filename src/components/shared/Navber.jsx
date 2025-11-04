@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from '../../assets/New folder/logo.png';
-import { NavLink, useNavigate } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import useAuth from '../../Hook/useAuth';
 
 const Navber = () => {
-    const {SignOut , users}= useAuth();
+    const { SignOut, users } = useAuth();
 
-    const handleClick=()=>{
+    const handleClick = () => {
         SignOut()
     };
     const links = (
@@ -14,7 +14,7 @@ const Navber = () => {
             <li className='text-sm font-semibold text-[#919191]'>Services</li>
             <li className='text-sm font-semibold text-[#919191]'>Coverage</li>
             <li className='text-sm font-semibold text-[#919191]'>About Us</li>
-            <li className='text-sm font-semibold text-[#919191]'>Pricing</li>
+            <Link to={'/percel'}><li className='text-sm font-semibold text-[#919191]'>Send-Percel</li></Link>
             <li className='text-sm font-semibold text-[#919191]'>Be a Rider</li>
         </>
     )
