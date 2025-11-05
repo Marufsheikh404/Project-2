@@ -8,6 +8,7 @@ import PercelFrom from "../pages/PercelFrom/PercelFrom";
 import DashboardLayout from "../Layout/DashboardLayout";
 import MyPercel from "../pages/Dashboard/myPercel/MyPercel";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
+import Payment from "../pages/Dashboard/payment/Payment";
 
 
 
@@ -48,6 +49,10 @@ const Router = createBrowserRouter([
             {
                 path:'mypercel',
                 element:<MyPercel/>
+            },
+            {
+                path:'payment',
+                element:<Payment></Payment>
             }
         ]
     }

@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../Hook/useAuth';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const MyPercel = () => {
+    const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     const { users } = useAuth();
     const { data: percels = [],refetch } = useQuery({
@@ -13,6 +15,10 @@ const MyPercel = () => {
             return res.data;
         }
     });
+
+    const  handlePay=()=>{
+        navigate('/dashboard/payment')
+    }
 
     // Delete handler with SweetAlert
     const handleDelete = async (id) => {
