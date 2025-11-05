@@ -51,7 +51,7 @@ const Router = createBrowserRouter([
                 element:<MyPercel/>
             },
             {
-                path:'payment',
+                path:'payment/:id',
                 element:<Payment></Payment>
             }
         ]

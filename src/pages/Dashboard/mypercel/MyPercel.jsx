@@ -2,13 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../Hook/useAuth';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const MyPercel = () => {
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     const { users } = useAuth();
-    const { data: percels = [],refetch } = useQuery({
+    const { data: percels = [], refetch } = useQuery({
         queryKey: ['Mypercels', users.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/percels?email=${users.email}`)
@@ -16,7 +16,7 @@ const MyPercel = () => {
         }
     });
 
-    const  handlePay=()=>{
+    const handlePay = () => {
         navigate('/dashboard/payment')
     }
 
@@ -83,13 +83,13 @@ const MyPercel = () => {
                                     >
                                         Delete
                                     </button>
-                                    <button
+                                    <Link to={`/dashboard/payment/${parcel._id}`}> <button
                                         className="btn btn-xs btn-primary"
                                         onClick={() => handlePay(parcel._id)}
                                         disabled={parcel.paid}
                                     >
                                         Pay
-                                    </button>
+                                    </button></Link>
                                     <button className="btn btn-xs btn-secondary">Add</button>
                                 </td>
                             </tr>
