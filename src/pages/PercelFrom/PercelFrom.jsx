@@ -1,12 +1,23 @@
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
+import useAuth from "../../Hook/useAuth";
+import axiosPublic from "../../Hook/useAxiosPublic";
+
+
+const generateTrackingId = () => {
+    const timestamp = Date.now().toString(36); // time-based part
+    const random = Math.random().toString(36).substring(2, 8); // random 6 chars
+    return `PKG-${timestamp}-${random}`.toUpperCase();
+};
 
 export default function ParcelForm() {
     const centers = useLoaderData(); // loaderData = JSON
     const { register, handleSubmit, watch, reset } = useForm();
     const [totalCost, setTotalCost] = useState(0);
+
+    const { users } = useAuth(); // user info from hook
 
     const parcelType = watch("type");
     const weight = parseFloat(watch("weight")) || 0;
@@ -45,22 +56,69 @@ export default function ParcelForm() {
     }, [parcelType, weight, senderRegion]);
 
     // ---------- Submit Handler ----------
-    const onSubmit = (data) => {
-        // const confirmSubmit = window.confirm(
-        //     `Total Cost is ৳ ${totalCost}. Do you want to submit?`
-        // );
-        // if (!confirmSubmit) return;
+    const onSubmit = async (data) => {
+        // Create parcel object
+        const parcelData = {
+            userEmail: users?.email || "guest@example.com",
+            parcelType: parcelType,
+            title: watch("title"),
+            weight: weight,
+            sender: {
+                name: watch("senderName"),
+                phone: watch("senderPhone"),
+                region: senderRegion,
+                district: senderDistrict,
+                serviceCenter: watch("senderServiceCenter"),
+            },
+            receiver: {
+                name: watch("receiverName"),
+                phone: watch("receiverPhone"),
+                region: receiverRegion,
+                district: receiverDistrict,
+                serviceCenter: watch("receiverServiceCenter"),
+            },
+            totalCost: totalCost,
+            status: "pending",
+            payment_status: "unpaid",
+            Delivery_status: "not_collected",
+            createdAt: new Date().toISOString(),
+            trackingId: generateTrackingId()
+        };
 
-        data.cost = totalCost;
-        console.log("Submitted Data:", data);
-        toast.success("Parcel submitted successfully!");
-        reset();
-        setTotalCost(0);
+        // SweetAlert confirm
+        const result = await Swal.fire({
+            title: "Confirm Parcel Submission",
+            html: `<p>Estimated Total Cost: <b>৳ ${totalCost}</b></p>`,
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonText: "Submit",
+            cancelButtonText: "Cancel",
+        });
+
+        if (result.isConfirmed) {
+
+            axiosPublic.post('/percels', parcelData)
+                .then(res => {
+                    console.log('percel added', res.data)
+                    if (res.data?.insertedId) {
+                        reset()
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Your percel has been send successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.log('error', error)
+                });
+        }
     };
 
     return (
         <div className="max-w-6xl mx-auto p-6">
-            <Toaster />
             <h2 className="text-3xl font-bold text-center mb-6">Send Parcel</h2>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
@@ -111,7 +169,7 @@ export default function ParcelForm() {
                             <label className="font-medium">Region</label>
                             <select className="select select-bordered w-full" {...register("senderRegion", { required: true })}>
                                 <option value="">Select Region</option>
-                                {[...new Set(centers.map((c) => c.region))].map((r, i) => (
+                                {[...new Set(centers.map(c => c.region))].map((r, i) => (
                                     <option key={i} value={r}>{r}</option>
                                 ))}
                             </select>
@@ -159,7 +217,7 @@ export default function ParcelForm() {
                             <label className="font-medium">Region</label>
                             <select className="select select-bordered w-full" {...register("receiverRegion", { required: true })}>
                                 <option value="">Select Region</option>
-                                {[...new Set(centers.map((c) => c.region))].map((r, i) => (
+                                {[...new Set(centers.map(c => c.region))].map((r, i) => (
                                     <option key={i} value={r}>{r}</option>
                                 ))}
                             </select>
