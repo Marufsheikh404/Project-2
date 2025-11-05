@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
         return <span className="loading loading-infinity loading-xl"></span>
     }
     if (!users) {
-        return <Navigate to="/login" state={{ from: location.pathname }} replace />;
+        return <Navigate to="/" state={{ from: location.pathname }} replace />;
     }
 
     return children
