@@ -9,6 +9,10 @@ const PaymentFrom = () => {
         if(!stripe || !elements){
             return;
         }
+        const card = elements.getElement(CardElement);
+        if(!card){
+            return;
+        }
     }
     return (
         <div>
