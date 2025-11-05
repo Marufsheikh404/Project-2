@@ -7,6 +7,7 @@ import Register from "../pages/Authentication/Register/Register";
 import PercelFrom from "../pages/PercelFrom/PercelFrom";
 import DashboardLayout from "../Layout/DashboardLayout";
 import MyPercel from "../pages/Dashboard/myPercel/MyPercel";
+import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 
 
 
@@ -21,7 +22,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'percel',
-                element: <PercelFrom></PercelFrom>,
+                element: <PrivateRoute><PercelFrom></PercelFrom></PrivateRoute>,
                 loader:(()=>fetch('/warehouses.json'))
             }
         ]
@@ -42,7 +43,7 @@ const Router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<DashboardLayout></DashboardLayout>,
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
             {
                 path:'mypercel',
