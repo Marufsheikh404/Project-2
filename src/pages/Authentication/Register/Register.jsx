@@ -2,10 +2,11 @@
 import { useForm } from 'react-hook-form';
 import logo from '../../../assets/New folder/logo.png'
 import useAuth from '../../../Hook/useAuth';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 
 const Register = () => {
     const {createUser,setLoading,googleSignIn} = useAuth();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -17,6 +18,7 @@ const Register = () => {
         .then(result =>{
             const user = result.user
             console.log(user)
+            navigate('/')
             reset()
         })
         .catch(error=>{

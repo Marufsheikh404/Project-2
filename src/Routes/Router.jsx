@@ -10,27 +10,28 @@ const Router = createBrowserRouter([
     {
         path: '/',
         Component: Root,
-        children:[
+        children: [
             {
                 index: true,
                 Component: Home
             },
             {
-                path:'percel',
-                element:<PercelFrom></PercelFrom>
+                path: 'percel',
+                element: <PercelFrom></PercelFrom>,
+                loader:(()=>fetch('/warehouses.json'))
             }
         ]
     },
     {
-        path:'/',
+        path: '/',
         Component: AuthLayout,
-        children:[
+        children: [
             {
-                path:'login',
+                path: 'login',
                 Component: Login
             },
             {
-                path:'register',
+                path: 'register',
                 Component: Register
             }
         ]
