@@ -5,6 +5,7 @@ import AuthLayout from "../Layout/AuthLayout";
 import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
 import PercelFrom from "../pages/PercelFrom/PercelFrom";
+import DashboardLayout from "../Layout/DashboardLayout";
 
 const Router = createBrowserRouter([
     {
@@ -33,6 +34,15 @@ const Router = createBrowserRouter([
             {
                 path: 'register',
                 Component: Register
+            }
+        ]
+    },
+    {
+        path:'/dashboard',
+        element:<DashboardLayout></DashboardLayout>,
+        children:[
+            {
+                
             }
         ]
     }

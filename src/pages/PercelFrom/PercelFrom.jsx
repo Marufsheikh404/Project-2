@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../Hook/useAuth";
-import axiosPublic from "../../Hook/useAxiosPublic";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
+
 
 
 const generateTrackingId = () => {
@@ -13,6 +14,7 @@ const generateTrackingId = () => {
 };
 
 export default function ParcelForm() {
+    const axisSecure = useAxiosSecure();
     const centers = useLoaderData(); // loaderData = JSON
     const { register, handleSubmit, watch, reset } = useForm();
     const [totalCost, setTotalCost] = useState(0);
@@ -97,7 +99,7 @@ export default function ParcelForm() {
 
         if (result.isConfirmed) {
 
-            axiosPublic.post('/percels', parcelData)
+            axisSecure.post('/percels', parcelData)
                 .then(res => {
                     console.log('percel added', res.data)
                     if (res.data?.insertedId) {
