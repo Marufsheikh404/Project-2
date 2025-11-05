@@ -6,6 +6,9 @@ import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
 import PercelFrom from "../pages/PercelFrom/PercelFrom";
 import DashboardLayout from "../Layout/DashboardLayout";
+import MyPercel from "../pages/Dashboard/myPercel/MyPercel";
+
+
 
 const Router = createBrowserRouter([
     {
@@ -42,7 +45,8 @@ const Router = createBrowserRouter([
         element:<DashboardLayout></DashboardLayout>,
         children:[
             {
-                
+                path:'mypercel',
+                element:<MyPercel/>
             }
         ]
     }
