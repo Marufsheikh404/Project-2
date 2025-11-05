@@ -31,7 +31,7 @@ const MyPercel = () => {
                         {percels.map((parcel, idx) => (
                             <tr key={parcel._id}>
                                 <th>{idx + 1}</th>
-                                <td>{parcel.type || "Document"}</td>
+                                <td>{parcel.parcelType || "Document"}</td>
                                 <td>{new Date(parcel.createdAt).toLocaleString()}</td>
                                 <td>${parcel.totalCost || 0}</td>
                                 <td>
@@ -42,7 +42,7 @@ const MyPercel = () => {
                                     ) : (
                                         <span className="badge badge-warning">Unpaid</span>
                                     )} */}
-                                    
+
                                 </td>
                                 <td className="flex gap-2">
                                     <button

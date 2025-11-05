@@ -1,12 +1,12 @@
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router';
 
 const DashboardLayout = () => {
     return (
         <div className="drawer drawer-open">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
-               <Outlet></Outlet>
+                <Outlet></Outlet>
             </div>
 
             <div className="drawer-side is-drawer-close:overflow-visible">
@@ -27,7 +27,7 @@ const DashboardLayout = () => {
                         <li>
                             <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Settings">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="inline-block size-4 my-1.5"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
-                                <span className="is-drawer-close:hidden">Settings</span>
+                                <Link to={'mypercel'}><span className="is-drawer-close:hidden">My Percel</span></Link>
                             </button>
                         </li>
                     </ul>
