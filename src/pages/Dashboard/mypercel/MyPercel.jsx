@@ -1,17 +1,41 @@
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../Hook/useAuth';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const MyPercel = () => {
     const axiosSecure = useAxiosSecure();
     const { users } = useAuth();
-    const { data: percels = [] } = useQuery({
+    const { data: percels = [],refetch } = useQuery({
         queryKey: ['Mypercels', users.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/percels?email=${users.email}`)
             return res.data;
         }
-    })
+    });
+
+    // Delete handler with SweetAlert
+    const handleDelete = async (id) => {
+        const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!",
+        });
+
+        if (result.isConfirmed) {
+            try {
+                await axiosSecure.delete(`/percels/${id}`);
+                refetch();
+            } catch (error) {
+                toast.error("Failed to delete parcel");
+                console.log(error);
+            }
+        }
+    };
 
     return (
         <div>
@@ -20,6 +44,7 @@ const MyPercel = () => {
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Title</th>
                             <th>Type</th>
                             <th>Created At</th>
                             <th>Cost</th>
@@ -31,6 +56,7 @@ const MyPercel = () => {
                         {percels.map((parcel, idx) => (
                             <tr key={parcel._id}>
                                 <th>{idx + 1}</th>
+                                <td>{parcel.title}</td>
                                 <td>{parcel.parcelType || "Document"}</td>
                                 <td>{new Date(parcel.createdAt).toLocaleString()}</td>
                                 <td>${parcel.totalCost || 0}</td>
