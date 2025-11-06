@@ -7,7 +7,7 @@ import { useParams } from 'react-router';
 const Payment = () => {
     const {id} = useParams();
 
-    const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+    const stripePromise = loadStripe(import.meta.env.VITE_public_key);
     return (
         <div>
             <Elements stripe={stripePromise}>
