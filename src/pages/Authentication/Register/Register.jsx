@@ -4,9 +4,11 @@ import logo from '../../../assets/New folder/logo.png'
 import useAuth from '../../../Hook/useAuth';
 import { NavLink, useNavigate } from 'react-router';
 import axios from 'axios';
+import { useState } from 'react';
 
 const Register = () => {
-    const { createUser, setLoading, googleSignIn } = useAuth();
+    const [photo, setPhoto] = useState('');
+    const { createUser, setLoading, googleSignIn, updateimge } = useAuth();
     const navigate = useNavigate();
     const {
         register,
@@ -19,6 +21,19 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+
+                // update userProfile on Firebase
+                const userUpdate = {
+                    displayName: data.name,
+                    photoURL: photo
+                }
+                updateimge(userUpdate)
+                    .then(() => {
+                        console.log('image updated')
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
                 navigate('/')
                 reset()
             })
@@ -36,7 +51,7 @@ const Register = () => {
 
         const imageUpload = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_upload_key}`
         const res = await axios.post(imageUpload, formData)
-        console.log(res.data.data.url)
+        setPhoto(res.data.data.url)
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
