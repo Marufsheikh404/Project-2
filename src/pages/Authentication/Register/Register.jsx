@@ -26,6 +26,13 @@ const Register = () => {
         })
         .finally(()=>setLoading(false))
     }
+
+    const handleChange =(e)=>{
+        const image = e.target.files[0];
+        console.log(image)
+        const formData = new FormData();
+        formData.append('image', image)
+    }
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col">
@@ -38,10 +45,16 @@ const Register = () => {
                         <form onSubmit={handleSubmit(onSubmit)} className="fieldset">
                             <label className="label">Name</label>
                             <input type="text" {...register('name')} className="input" placeholder="User Name" />
+
+                            <label className="label">Upload Your Photo</label>
+                            <input onChange={handleChange} type="file" className="input" placeholder="Upload Your Photo" />
+
                             <label className="label">Email</label>
                             <input type="email" {...register('email')} className="input" placeholder="Email" />
+
                             <label className="label">Password</label>
                             <input type="password" {...register('password')} className="input" placeholder="Password" />
+
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <button className="btn bg-[#ACC857] mt-4">SignUp</button>
                             <h1>Already Have An Account? <NavLink to={'/login'}><span className='text-sm font-semibold text-[#ACC857]'>SignIn</span></NavLink></h1>

@@ -9,6 +9,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import MyPercel from "../pages/Dashboard/myPercel/MyPercel";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Payment from "../pages/Dashboard/payment/Payment";
+import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
 
 
 
@@ -53,6 +54,10 @@ const Router = createBrowserRouter([
             {
                 path:'payment/:id',
                 element:<Payment></Payment>
+            },
+            {
+                path:'history',
+                element:<PaymentHistory></PaymentHistory>
             }
         ]
     }
