@@ -3,9 +3,10 @@ import { useForm } from 'react-hook-form';
 import logo from '../../../assets/New folder/logo.png'
 import useAuth from '../../../Hook/useAuth';
 import { NavLink, useNavigate } from 'react-router';
+import axios from 'axios';
 
 const Register = () => {
-    const {createUser,setLoading,googleSignIn} = useAuth();
+    const { createUser, setLoading, googleSignIn } = useAuth();
     const navigate = useNavigate();
     const {
         register,
@@ -15,23 +16,27 @@ const Register = () => {
     const onSubmit = (data) => {
         setLoading(true)
         createUser(data.email, data.password)
-        .then(result =>{
-            const user = result.user
-            console.log(user)
-            navigate('/')
-            reset()
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-        .finally(()=>setLoading(false))
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                navigate('/')
+                reset()
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally(() => setLoading(false))
     }
 
-    const handleChange =(e)=>{
+    const handleChange = async (e) => {
         const image = e.target.files[0];
         console.log(image)
         const formData = new FormData();
         formData.append('image', image)
+
+        const imageUpload = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_upload_key}`
+        const res = await axios.post(imageUpload, formData)
+        console.log(res.data.data.url)
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
