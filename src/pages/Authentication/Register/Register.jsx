@@ -22,6 +22,15 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
 
+                // user send to the database
+                const userInfo ={
+                    email:data.email,
+                    name:data.name,
+                    role:'user',
+                    create_at: new Date().toISOString(),
+                    last_loggin_in: new Date().toISOString()
+                }
+
                 // update userProfile on Firebase
                 const userUpdate = {
                     displayName: data.name,
