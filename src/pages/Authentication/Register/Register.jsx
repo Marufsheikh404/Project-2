@@ -5,8 +5,10 @@ import useAuth from '../../../Hook/useAuth';
 import { NavLink, useNavigate } from 'react-router';
 import axios from 'axios';
 import { useState } from 'react';
+import axiosPublic from '../../../Hook/useAxiosPublic';
 
 const Register = () => {
+    const axiospublic = axiosPublic;
     const [photo, setPhoto] = useState('');
     const { createUser, setLoading, googleSignIn, updateimge } = useAuth();
     const navigate = useNavigate();
@@ -18,24 +20,27 @@ const Register = () => {
     const onSubmit = (data) => {
         setLoading(true)
         createUser(data.email, data.password)
-            .then(result => {
+            .then(async (result) => {
                 const user = result.user
                 console.log(user)
 
                 // user send to the database
-                const userInfo ={
-                    email:data.email,
-                    name:data.name,
-                    role:'user',
+                const userInfo = {
+                    email: data.email,
+                    name: data.name,
+                    role: 'user',
                     create_at: new Date().toISOString(),
                     last_loggin_in: new Date().toISOString()
                 }
+                const userRes = await axiospublic.post('/users', userInfo)
+                console.log(userRes.data)
 
                 // update userProfile on Firebase
                 const userUpdate = {
                     displayName: data.name,
                     photoURL: photo
                 }
+                // update profile
                 updateimge(userUpdate)
                     .then(() => {
                         console.log('image updated')
