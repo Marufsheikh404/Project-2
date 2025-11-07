@@ -10,6 +10,7 @@ import MyPercel from "../pages/Dashboard/myPercel/MyPercel";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Payment from "../pages/Dashboard/payment/Payment";
 import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
+import BeRider from "../pages/BeRider/BeRider";
 
 
 
@@ -40,6 +41,10 @@ const Router = createBrowserRouter([
             {
                 path: 'register',
                 Component: Register
+            },
+            {
+                path:'rider',
+                element:<BeRider></BeRider>
             }
         ]
     },
