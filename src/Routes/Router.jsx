@@ -75,7 +75,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'activeRiders',
-                element: <ActiveRiders></ActiveRiders>
+                element: <AdminRoute><ActiveRiders></ActiveRiders></AdminRoute>
             },
             {
                 path: 'pendingRiders',
