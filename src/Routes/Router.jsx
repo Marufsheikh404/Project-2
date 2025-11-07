@@ -24,9 +24,13 @@ const Router = createBrowserRouter([
                 Component: Home
             },
             {
+                path: 'rider',
+                element: <BeRider></BeRider>
+            },
+            {
                 path: 'percel',
                 element: <PrivateRoute><PercelFrom></PercelFrom></PrivateRoute>,
-                loader:(()=>fetch('/warehouses.json'))
+                loader: (() => fetch('/warehouses.json'))
             }
         ]
     },
@@ -41,28 +45,24 @@ const Router = createBrowserRouter([
             {
                 path: 'register',
                 Component: Register
-            },
-            {
-                path:'rider',
-                element:<BeRider></BeRider>
             }
         ]
     },
     {
-        path:'/dashboard',
-        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-        children:[
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
             {
-                path:'mypercel',
-                element:<MyPercel/>
+                path: 'mypercel',
+                element: <MyPercel />
             },
             {
-                path:'payment/:id',
-                element:<Payment></Payment>
+                path: 'payment/:id',
+                element: <Payment></Payment>
             },
             {
-                path:'history',
-                element:<PaymentHistory></PaymentHistory>
+                path: 'history',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }
