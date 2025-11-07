@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
 import { FaHome, FaBox, FaHistory, FaChevronRight } from "react-icons/fa";
+import useUserRole from '../Hook/useUserRole';
 
 const DashboardLayout = () => {
+
+    const { role, loading } = useUserRole();
+
+
     return (
         <div className="drawer drawer-open">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -40,26 +45,31 @@ const DashboardLayout = () => {
                             </Link>
                         </li>
 
-                        <li>
-                            <Link to={'/dashboard/activeRiders'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
-                                <FaHistory className="text-lg" />
-                                <span className="is-drawer-close:hidden">Active Riders</span>
-                            </Link>
-                        </li>
+                        { !loading && role === 'user' &&
+                            <>
+                                <li>
+                                    <Link to={'/dashboard/activeRiders'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
+                                        <FaHistory className="text-lg" />
+                                        <span className="is-drawer-close:hidden">Active Riders</span>
+                                    </Link>
+                                </li>
 
-                        <li>
-                            <Link to={'/dashboard/pendingRiders'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
-                                <FaHistory className="text-lg" />
-                                <span className="is-drawer-close:hidden">Pending Riders</span>
-                            </Link>
-                        </li>
+                                <li>
+                                    <Link to={'/dashboard/pendingRiders'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
+                                        <FaHistory className="text-lg" />
+                                        <span className="is-drawer-close:hidden">Pending Riders</span>
+                                    </Link>
+                                </li>
 
-                        <li>
-                            <Link to={'/dashboard/admin'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
-                                <FaHistory className="text-lg" />
-                                <span className="is-drawer-close:hidden">Admin</span>
-                            </Link>
-                        </li>
+                                <li>
+                                    <Link to={'/dashboard/admin'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
+                                        <FaHistory className="text-lg" />
+                                        <span className="is-drawer-close:hidden">Admin</span>
+                                    </Link>
+                                </li>
+                            </>
+                        }
+
                     </ul>
 
                     {/* Open/Close Drawer Button */}
