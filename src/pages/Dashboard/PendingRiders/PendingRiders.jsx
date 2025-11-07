@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axiosPublic from "../../../Hook/useAxiosPublic";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const PendingRiders = () => {
     const axios = axiosPublic;
+    const axiosSecure = useAxiosSecure();
     const [riders, setRiders] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -26,7 +28,7 @@ const PendingRiders = () => {
     // Handle Approve or Reject
     const handleAction = async (riderId, newStatus) => {
         try {
-            await axios.patch(`/riders/pending/${riderId}/status`, { status: newStatus });
+            await axios.patch(`/riders/pending/${riderId}`, { status: newStatus });
             Swal.fire({
                 icon: "success",
                 title: `Rider ${newStatus}`,
@@ -70,10 +72,10 @@ const PendingRiders = () => {
                             <td>
                                 <span
                                     className={`badge ${rider.status === "pending"
-                                            ? "badge-warning"
-                                            : rider.status === "approved"
-                                                ? "badge-success"
-                                                : "badge-error"
+                                        ? "badge-warning"
+                                        : rider.status === "approved"
+                                            ? "badge-success"
+                                            : "badge-error"
                                         }`}
                                 >
                                     {rider.status}
