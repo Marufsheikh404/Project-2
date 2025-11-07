@@ -6,7 +6,7 @@ const useUserRole = () => {
     const { users } = useAuth();
     const axiosSecure = useAxiosSecure();
     const [role, setRole] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [Loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchRole = async () => {
@@ -33,7 +33,7 @@ const useUserRole = () => {
         fetchRole();
     }, [users?.email, axiosSecure]);
 
-    return { role, loading:authLoading };
+    return { role, Loading };
 };
 
 export default useUserRole;

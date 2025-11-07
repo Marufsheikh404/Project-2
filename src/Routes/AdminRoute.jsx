@@ -4,9 +4,9 @@ import useUserRole from "../Hook/useUserRole";
 
 const AdminRoute = ({ children }) => {
     const { users, loading } = useAuth();
-    const { role, authLoading } = useUserRole();
+    const { role, Loading } = useUserRole();
 
-    if (loading || authLoading) {
+    if (loading || Loading) {
         return <p>....loading</p>
     }
 
