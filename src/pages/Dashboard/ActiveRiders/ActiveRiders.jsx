@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import useAxiosSecure from '../../../Hook/useAxiosSecure';
 
 const ActiveRiders = () => {
     const [riders, setRiders] = useState([]);
     const [loading, setLoading] = useState(true);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         const fetchActiveRiders = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/riders/active');
+                const res = await axiosSecure.get('/riders/active');
                 setRiders(res.data);
             } catch (error) {
                 console.error('Failed to fetch active riders:', error);
@@ -27,7 +28,7 @@ const ActiveRiders = () => {
             <table className="table table-zebra w-full">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>No</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Contact</th>
@@ -38,8 +39,8 @@ const ActiveRiders = () => {
                     {riders.map((rider, index) => (
                         <tr key={rider._id}>
                             <td>{index + 1}</td>
-                            <td>{rider.name}</td>
-                            <td>{rider.email}</td>
+                            <td>{rider.name || "N/A"}</td>
+                            <td>{rider.email || "N/A"}</td>
                             <td>{rider.contact}</td>
                             <td className="text-green-500 font-bold">{rider.status}</td>
                         </tr>
