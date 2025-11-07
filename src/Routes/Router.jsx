@@ -11,6 +11,8 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Payment from "../pages/Dashboard/payment/Payment";
 import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
 import BeRider from "../pages/BeRider/BeRider";
+import ActiveRiders from "../pages/Dashboard/ActiveRiders/ActiveRiders";
+import PendingRiders from "../pages/Dashboard/PendingRiders/PendingRiders";
 
 
 
@@ -66,11 +68,11 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'activeRiders',
-                element: <PaymentHistory></PaymentHistory>
+                element: <ActiveRiders></ActiveRiders>
             },
             {
                 path: 'pendingRiders',
-                element: <PaymentHistory></PaymentHistory>
+                element: <PendingRiders></PendingRiders>
             }
         ]
     }
