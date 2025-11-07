@@ -39,6 +39,20 @@ const DashboardLayout = () => {
                                 <span className="is-drawer-close:hidden">My History</span>
                             </Link>
                         </li>
+
+                        <li>
+                            <Link to={'/dashboard/activeRiders'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
+                                <FaHistory className="text-lg" />
+                                <span className="is-drawer-close:hidden">Active Riders</span>
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to={'/dashboard/pendingRiders'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
+                                <FaHistory className="text-lg" />
+                                <span className="is-drawer-close:hidden">Pending Riders</span>
+                            </Link>
+                        </li>
                     </ul>
 
                     {/* Open/Close Drawer Button */}

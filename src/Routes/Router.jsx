@@ -63,6 +63,14 @@ const Router = createBrowserRouter([
             {
                 path: 'history',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: 'activeRiders',
+                element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: 'pendingRiders',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }
