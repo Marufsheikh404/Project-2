@@ -13,6 +13,7 @@ import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
 import BeRider from "../pages/BeRider/BeRider";
 import ActiveRiders from "../pages/Dashboard/ActiveRiders/ActiveRiders";
 import PendingRiders from "../pages/Dashboard/PendingRiders/PendingRiders";
+import Admin from "../pages/Admin/Admin";
 
 
 
@@ -73,6 +74,10 @@ const Router = createBrowserRouter([
             {
                 path: 'pendingRiders',
                 element: <PendingRiders></PendingRiders>
+            },
+            {
+                path: 'admin',
+                element: <Admin></Admin>
             }
         ]
     }
