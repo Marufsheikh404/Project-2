@@ -45,7 +45,7 @@ const DashboardLayout = () => {
                             </Link>
                         </li>
 
-                        { !loading && role === 'user' &&
+                        { !loading && role === 'admin' &&
                             <>
                                 <li>
                                     <Link to={'/dashboard/activeRiders'} className="flex items-center gap-2 p-2 rounded hover:bg-gray-200 w-full">
