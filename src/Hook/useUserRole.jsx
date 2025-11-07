@@ -33,7 +33,7 @@ const useUserRole = () => {
         fetchRole();
     }, [users?.email, axiosSecure]);
 
-    return { role, loading };
+    return { role, loading:authLoading };
 };
 
 export default useUserRole;

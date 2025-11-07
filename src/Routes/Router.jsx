@@ -14,6 +14,8 @@ import BeRider from "../pages/BeRider/BeRider";
 import ActiveRiders from "../pages/Dashboard/ActiveRiders/ActiveRiders";
 import PendingRiders from "../pages/Dashboard/PendingRiders/PendingRiders";
 import Admin from "../pages/Admin/Admin";
+import Forbidden from "../pages/Forbidden/Forbidden";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -34,6 +36,10 @@ const Router = createBrowserRouter([
                 path: 'percel',
                 element: <PrivateRoute><PercelFrom></PercelFrom></PrivateRoute>,
                 loader: (() => fetch('/warehouses.json'))
+            },
+            {
+                path: 'forbidden',
+                element: <Forbidden></Forbidden>
             }
         ]
     },
@@ -77,7 +83,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'admin',
-                element: <Admin></Admin>
+                element: <AdminRoute> <Admin></Admin></AdminRoute>
             }
         ]
     }
