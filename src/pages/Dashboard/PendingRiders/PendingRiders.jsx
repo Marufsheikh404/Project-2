@@ -26,9 +26,9 @@ const PendingRiders = () => {
     }, []);
 
     // Handle Approve or Reject
-    const handleAction = async (riderId, newStatus) => {
+    const handleAction = async (riderId, newStatus, email) => {
         try {
-            await axios.patch(`/riders/pending/${riderId}`, { status: newStatus });
+            await axios.patch(`/riders/pending/${riderId}`, { status: newStatus, email:email });
             Swal.fire({
                 icon: "success",
                 title: `Rider ${newStatus}`,
@@ -86,7 +86,7 @@ const PendingRiders = () => {
                                     <>
                                         <button
                                             className="btn btn-sm btn-success"
-                                            onClick={() => handleAction(rider._id, "approved")}
+                                            onClick={() => handleAction(rider._id, rider.email, "approved")}
                                         >
                                             Accept
                                         </button>
