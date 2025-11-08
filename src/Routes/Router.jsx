@@ -6,7 +6,6 @@ import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
 import PercelFrom from "../pages/PercelFrom/PercelFrom";
 import DashboardLayout from "../Layout/DashboardLayout";
-import MyPercel from "../pages/Dashboard/myPercel/MyPercel";
 import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Payment from "../pages/Dashboard/payment/Payment";
 import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
@@ -17,6 +16,7 @@ import Admin from "../pages/Admin/Admin";
 import Forbidden from "../pages/Forbidden/Forbidden";
 import AdminRoute from "./AdminRoute";
 import AssignRider from "../pages/Dashboard/AssignRIder/AssignRider";
+import MyPercel from "../pages/Dashboard/mypercel/MyPercel";
 
 
 
@@ -64,7 +64,7 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: 'mypercel',
-                element: <MyPercel />
+                element: <MyPercel></MyPercel>
             },
             {
                 path: 'payment/:id',
@@ -76,11 +76,11 @@ const Router = createBrowserRouter([
             },
             {
                 path:'assign-rider',
-                element:<AdminRoute><AssignRider></AssignRider></AdminRoute>
+                element:<AssignRider></AssignRider>
             },
             {
                 path: 'activeRiders',
-                element: <AdminRoute><ActiveRiders></ActiveRiders></AdminRoute>
+                element:<ActiveRiders></ActiveRiders>
             },
             {
                 path: 'pendingRiders',
@@ -88,7 +88,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'admin',
-                element: <AdminRoute> <Admin></Admin></AdminRoute>
+                element:<Admin></Admin>
             }
         ]
     }

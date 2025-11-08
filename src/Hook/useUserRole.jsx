@@ -16,7 +16,8 @@ const useUserRole = () => {
                 return;
             }
             try {
-                const res = await axiosSecure.get(`/users/role?email=${users.email}`);
+                // Change the API endpoint
+                const res = await axiosSecure.get('/users/role');
                 if (res.data.success) {
                     setRole(res.data.role);
                 } else {
