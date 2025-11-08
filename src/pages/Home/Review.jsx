@@ -39,7 +39,7 @@ const  Review = () => {
     return (
         <div className="bg-[#F7F9FA] py-12 px-6">
             {/* Top Text */}
-            <SectionTitle title={"what Our Customer Is Saying"} description={"always be happy is the same time. I want to buy some grocerious."}></SectionTitle>
+            <SectionTitle title={"What Our Customer Is Saying"} description={"always be happy is the same time. I want to buy some grocerious."}></SectionTitle>
 
             {/* Divider */}
             <div className="w-24 h-[3px] bg-[#CAEB66] mx-auto mb-10 rounded-full"></div>
@@ -48,14 +48,14 @@ const  Review = () => {
             <Slider {...settings}>
                 {authors.map(({ id, name, title }) => (
                     <div key={id} className="px-4">
-                        <div className="bg-white shadow-md w-60 h-30 mb-4 cursor-pointer rounded-tl-4xl rounded-br-4xl p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-300">
+                        <div className="bg-white shadow-md w-60 h-20 lg:h-30 mb-4 cursor-pointer lg:rounded-tl-4xl lg:rounded-br-4xl p-6 flex items-center gap-5 hover:shadow-lg transition-all duration-300">
                             <img
                                 src={author1}
                                 alt={name}
                                 className="w-10 h-10 rounded-full object-cover border-2 border-[#CAEB66]"
                             />
-                            <div>
-                                <h3 className="text-lg font-semibold text-[#03373D]">{name}</h3>
+                            <div className="hidden lg:block">
+                                <h3 className="text-xs lg:text-lg lg:font-semibold text-[#03373D]">{name}</h3>
                                 <p className="text-gray-500 text-sm">{title}</p>
                             </div>
                         </div>

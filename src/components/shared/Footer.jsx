@@ -13,31 +13,37 @@ const Footer = () => {
             <li className='text-sm font-semibold text-[#919191]'>Pricing</li>
             <li className='text-sm font-semibold text-[#919191]'>Blog</li>
             <li className='text-sm font-semibold text-[#919191]'>Contact</li>
-        </> 
-    )
+        </>
+    );
+
     return (
-        <div>
-            <footer className="footer footer-horizontal footer-center bg-black text-primary-content p-10">
-                <aside>
-                    <div className='flex'>
-                        <img src={logo} alt="logo" />
-                        <h1 className='text-2xl font-bold mt-6'>Profast</h1>
+        <div className="bg-black text-primary-content">
+            <footer className="p-10 flex flex-col md:flex-row md:justify-center items-center md:items-start gap-8 md:gap-0">
+                {/* Logo and Description */}
+                <aside className="text-center md:text-left flex flex-col items-center md:items-start gap-4">
+                    <div className='flex items-center gap-2'>
+                        <img src={logo} alt="logo" className="w-12 h-12" />
+                        <h1 className='text-2xl font-bold -translate-x-3 mt-2'>Zyntra</h1>
                     </div>
-                    <p className="font-bold">
+                    <p className="font-bold text-sm md:text-base max-w-xs md:max-w-md">
                         Enjoy fast, reliable parcel delivery with real-time tracking and
                         <br />
-                         zero hassle. From personal packages to business shipments — we deliver on time, every time.
-                    </p> 
+                        zero hassle. From personal packages to business shipments — we deliver on time, every time.
+                    </p>
                 </aside>
-                <div className='flex list-none gap-4'>
+
+                {/* Links */}
+                <ul className='flex flex-wrap justify-center md:justify-start gap-4 text-center md:text-left'>
                     {links}
-                </div>
+                </ul>
+
+                {/* Social Icons */}
                 <nav>
-                    <div className="grid grid-flow-col gap-4">
-                       <CiLinkedin size={30}/>
-                       <CiFacebook size={30} />
-                       <LuTwitter  size={30}/>
-                       <FiYoutube  size={30}/>
+                    <div className="flex gap-4 justify-center md:justify-start">
+                        <CiLinkedin size={30} />
+                        <CiFacebook size={30} />
+                        <LuTwitter size={30} />
+                        <FiYoutube size={30} />
                     </div>
                 </nav>
             </footer>
