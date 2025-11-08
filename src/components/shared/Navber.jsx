@@ -13,7 +13,7 @@ const Navber = () => {
         <>
             <Link to={'/'}><li className='text-sm font-semibold text-[#919191]'>Home</li></Link>
             <li className='text-sm font-semibold text-[#919191]'>Services</li>
-            <li className='text-sm font-semibold text-[#919191]'>Coverage</li>
+            <Link to={'/map'}> <li className='text-sm font-semibold text-[#919191]'>Map</li></Link>
             <li className='text-sm font-semibold text-[#919191]'>About Us</li>
             <Link to={'/percel'}><li className='text-sm font-semibold text-[#919191]'>Send-Percel</li></Link>
             <Link to={'/dashboard'}><li className='text-sm font-semibold text-[#919191]'>Dashboard</li></Link>

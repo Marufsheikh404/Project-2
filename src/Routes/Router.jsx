@@ -17,6 +17,7 @@ import Forbidden from "../pages/Forbidden/Forbidden";
 import AdminRoute from "./AdminRoute";
 import AssignRider from "../pages/Dashboard/AssignRIder/AssignRider";
 import MyPercel from "../pages/Dashboard/mypercel/MyPercel";
+import Coverage from "../pages/Coverage/Coverage";
 
 
 
@@ -32,6 +33,11 @@ const Router = createBrowserRouter([
             {
                 path: 'rider',
                 element: <BeRider></BeRider>
+            },
+            {
+                path: 'map',
+                Component: Coverage,
+                loader: () => fetch('/public/warehouses.json')
             },
             {
                 path: 'percel',
@@ -75,12 +81,12 @@ const Router = createBrowserRouter([
                 element: <PaymentHistory></PaymentHistory>
             },
             {
-                path:'assign-rider',
-                element:<AssignRider></AssignRider>
+                path: 'assign-rider',
+                element: <AssignRider></AssignRider>
             },
             {
                 path: 'activeRiders',
-                element:<ActiveRiders></ActiveRiders>
+                element: <ActiveRiders></ActiveRiders>
             },
             {
                 path: 'pendingRiders',
@@ -88,7 +94,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: 'admin',
-                element:<Admin></Admin>
+                element: <Admin></Admin>
             }
         ]
     }
