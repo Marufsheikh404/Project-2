@@ -49,7 +49,7 @@ const BeRider = () => {
                         <input
                             type="text"
                             {...register("name", { required: true })}
-                            className="input input-bordered text-black"
+                            className="input input-bordered text-black ring-1 ring-[#ddf95f]"
                             defaultValue={users?.displayName || ""}
                             readOnly={users?.displayName ? true : false}
                             placeholder="Enter your name"
@@ -62,7 +62,7 @@ const BeRider = () => {
                         <input
                             type="email"
                             {...register("email", { required: true })}
-                            className="input input-bordered"
+                            className="input input-bordered ring-1 ring-[#ddf95f]"
                             defaultValue={users?.email || ""}
                             readOnly={users?.email ? true : false}
                             placeholder="Enter your email"
@@ -75,7 +75,7 @@ const BeRider = () => {
                         <input
                             {...register("nid", { required: true })}
                             type="text"
-                            className="input input-bordered"
+                            className="input input-bordered ring-1 ring-[#ddf95f]"
                             placeholder="Enter your NID"
                         />
                     </div>
@@ -90,7 +90,7 @@ const BeRider = () => {
                         <input
                             {...register("age", { required: true })}
                             type="number"
-                            className="input input-bordered"
+                            className="input input-bordered ring-1 ring-[#ddf95f]"
                             placeholder="Enter your age"
                         />
                     </div>
@@ -100,7 +100,7 @@ const BeRider = () => {
                         <label className="label">Your Region</label>
                         <select
                             {...register("region", { required: true })}
-                            className="select select-bordered"
+                            className="select select-bordered ring-1 ring-[#ddf95f]"
                         >
                             <option value="">Select Region</option>
                             <option value="Dhaka">Dhaka</option>
@@ -120,7 +120,7 @@ const BeRider = () => {
                         <input
                             {...register("contact", { required: true })}
                             type="text"
-                            className="input input-bordered"
+                            className="input input-bordered ring-1 ring-[#ddf95f]"
                             placeholder="Enter your contact number"
                         />
                     </div>
@@ -132,7 +132,7 @@ const BeRider = () => {
                     <input
                         {...register("warehouse", { required: true })}
                         type="text"
-                        className="input input-bordered w-full"
+                        className="input  w-full ring-1 ring-[#ddf95f] border-none"
                         placeholder="Enter warehouse name"
                     />
                 </div>

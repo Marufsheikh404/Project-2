@@ -142,12 +142,12 @@ export default function ParcelForm() {
                     </div>
 
                     <label className="block font-medium">Parcel Title</label>
-                    <input className="input input-bordered w-full mb-3" {...register("title", { required: true })} />
+                    <input className="input input-bordered w-full mb-3 ring-1 ring-[#ddf95f]" {...register("title", { required: true })} />
 
                     {parcelType === "non-document" && (
                         <>
                             <label className="block font-medium">Weight (KG)</label>
-                            <input type="number" step="0.1" className="input input-bordered w-full" {...register("weight")} />
+                            <input type="number" step="0.1" className="input input-bordered w-full ring-1 ring-[#ddf95f]" {...register("weight")} />
                         </>
                     )}
                 </div>
@@ -159,17 +159,17 @@ export default function ParcelForm() {
 
                         <div>
                             <label className="font-medium">Sender Name</label>
-                            <input className="input input-bordered w-full" {...register("senderName", { required: true })} />
+                            <input className="input input-bordered w-full ring-1 ring-[#ddf95f]" {...register("senderName", { required: true })} />
                         </div>
 
                         <div>
                             <label className="font-medium">Sender Contact</label>
-                            <input className="input input-bordered w-full" {...register("senderPhone", { required: true })} />
+                            <input className="input input-bordered w-full ring-1 ring-[#ddf95f]" {...register("senderPhone", { required: true })} />
                         </div>
 
                         <div>
                             <label className="font-medium">Region</label>
-                            <select className="select select-bordered w-full" {...register("senderRegion", { required: true })}>
+                            <select className="select select-bordered w-full ring-1 ring-[#ddf95f]" {...register("senderRegion", { required: true })}>
                                 <option value="">Select Region</option>
                                 {[...new Set(centers.map(c => c.region))].map((r, i) => (
                                     <option key={i} value={r}>{r}</option>
@@ -179,7 +179,7 @@ export default function ParcelForm() {
 
                         <div>
                             <label className="font-medium">District</label>
-                            <select className="select select-bordered w-full" {...register("senderDistrict", { required: true })}>
+                            <select className="select select-bordered w-full ring-1 ring-[#ddf95f]" {...register("senderDistrict", { required: true })}>
                                 <option value="">Select District</option>
                                 {getDistricts(senderRegion).map((d, i) => (
                                     <option key={i} value={d}>{d}</option>
@@ -189,7 +189,7 @@ export default function ParcelForm() {
 
                         <div>
                             <label className="font-medium">Service Center</label>
-                            <select className="select select-bordered w-full" {...register("senderServiceCenter", { required: true })}>
+                            <select className="select select-bordered w-full ring-1 ring-[#ddf95f]" {...register("senderServiceCenter", { required: true })}>
                                 <option value="">Select Service Center</option>
                                 {getCoveredAreas(senderDistrict).map((area, i) => (
                                     <option key={i} value={area}>{area}</option>
@@ -207,17 +207,17 @@ export default function ParcelForm() {
 
                         <div>
                             <label className="font-medium">Receiver Name</label>
-                            <input className="input input-bordered w-full" {...register("receiverName", { required: true })} />
+                            <input className="input input-bordered w-full ring-1 ring-[#ddf95f]" {...register("receiverName", { required: true })} />
                         </div>
 
                         <div>
                             <label className="font-medium">Receiver Contact</label>
-                            <input className="input input-bordered w-full" {...register("receiverPhone", { required: true })} />
+                            <input className="input input-bordered w-full ring-1 ring-[#ddf95f]" {...register("receiverPhone", { required: true })} />
                         </div>
 
                         <div>
                             <label className="font-medium">Region</label>
-                            <select className="select select-bordered w-full" {...register("receiverRegion", { required: true })}>
+                            <select className="select select-bordered w-full ring-1 ring-[#ddf95f]" {...register("receiverRegion", { required: true })}>
                                 <option value="">Select Region</option>
                                 {[...new Set(centers.map(c => c.region))].map((r, i) => (
                                     <option key={i} value={r}>{r}</option>
@@ -227,7 +227,7 @@ export default function ParcelForm() {
 
                         <div>
                             <label className="font-medium">District</label>
-                            <select className="select select-bordered w-full" {...register("receiverDistrict", { required: true })}>
+                            <select className="select select-bordered w-full ring-1 ring-[#ddf95f]" {...register("receiverDistrict", { required: true })}>
                                 <option value="">Select District</option>
                                 {getDistricts(receiverRegion).map((d, i) => (
                                     <option key={i} value={d}>{d}</option>

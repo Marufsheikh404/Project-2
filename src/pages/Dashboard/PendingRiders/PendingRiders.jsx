@@ -12,7 +12,7 @@ const PendingRiders = () => {
         queryKey: ['pending-riders'],
         queryFn: async () => {
             const res = await axiosSecure.get("/riders/pending");
-            return res.data;
+            console.log('rider asce na kno',res.data)
         }
     })
 

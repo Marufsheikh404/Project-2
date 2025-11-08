@@ -18,14 +18,14 @@ const PaymentHistory = () => {
     if (isPending) return <p>...Loading</p>
     return (
         <div className="max-w-4xl mx-auto mt-10">
-            <h2 className="text-2xl font-bold mb-4">Your Payment History</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center">Your Payment History</h2>
 
             {history.length === 0 ? (
                 <p>No payments found</p>
             ) : (
                 <div className="overflow-x-auto">
                     <table className="table table-zebra w-full">
-                        <thead>
+                        <thead className='shadow-md border-gray-300 bg-[#ddf95f] text-black'>
                             <tr>
                                 <th>Parcel ID</th>
                                 <th>Amount</th>

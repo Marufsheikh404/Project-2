@@ -33,8 +33,8 @@ const Admin = () => {
     };
 
     return (
-        <div className="p-6">
-            <h2 className="text-xl font-bold mb-4">Manage User Roles</h2>
+        <div className="p-6 flex items-center justify-center flex-col">
+            <h2 className="text-xl font-bold mb-4 mr-1">Manage User Roles</h2>
 
             <div className="flex gap-2 mb-4">
                 <input
@@ -44,7 +44,7 @@ const Admin = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <button className="btn btn-primary" onClick={searchUser}>
+                <button className="btn bg-[#ddf95f]" onClick={searchUser}>
                     Search
                 </button>
             </div>

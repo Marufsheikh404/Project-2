@@ -63,7 +63,7 @@ const PaymentFrom = ({ percelId }) => {
 
         if (paymentIntent.status === "succeeded") {
 
-            // 1️⃣ Save Payment History
+            //Save Payment History
             const paymentData = {
                 userEmail: users.email,
                 parcelId: percelId,
@@ -74,14 +74,13 @@ const PaymentFrom = ({ percelId }) => {
 
             await axiosSecure.post('/payment-success', paymentData);
 
-            // 2️⃣ Update Parcel Status to Paid
             await axiosSecure.patch(`/percels/${percelId}/pay`, { status: "paid" });
 
-            // 3️⃣ Refetch data to update UI
+
             refetch();
 
             Swal.fire({
-                title: "Payment Successful ✅",
+                title: "Payment Successful",
                 text: `Transaction ID: ${paymentIntent.id}`,
                 icon: "success"
             });
@@ -97,11 +96,11 @@ const PaymentFrom = ({ percelId }) => {
                 <CardElement className='p-2 border rounded' />
 
                 <button
-                    className='btn btn-primary w-full'
+                    className='btn bg-[#ddf95f] w-full'
                     type='submit'
                     disabled={!stripe || percelIfo.status === "paid"}
                 >
-                    {percelIfo.status === "paid" ? "Already Paid ✅" : `Pay ${amount}`}
+                    {percelIfo.status === "paid" ? "Already Paid" : `Pay $ ${amount}`}
                 </button>
 
                 {error && <p className='text-sm font-semibold text-red-500'>{error}</p>}

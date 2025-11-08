@@ -58,7 +58,7 @@ const Navber = () => {
                 {/* Right Buttons for Desktop */}
                 <div className="hidden lg:flex justify-end gap-3">
                     {users ? (
-                        <button onClick={SignOut} className="btn text-lg font-semibold rounded-lg">Log Out</button>
+                        <button onClick={SignOut} className="btn text-lg hover:bg-[#CAEB66] font-semibold rounded-lg">Log Out</button>
                     ) : (
                         <NavLink to="/login" className="btn text-lg font-semibold rounded-lg">Sign In</NavLink>
                     )}

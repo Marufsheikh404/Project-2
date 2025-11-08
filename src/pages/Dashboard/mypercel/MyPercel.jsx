@@ -45,16 +45,15 @@ const MyPercel = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full mt-4">
                 <table className="table w-full table-zebra">
-                    <thead>
+                    <thead className='bg-[#a5bf30] text-black'>
                         <tr>
                             <th>No</th>
                             <th>Title</th>
                             <th>Type</th>
                             <th>Created At</th>
                             <th>Cost</th>
-                            <th>Payment</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -66,19 +65,10 @@ const MyPercel = () => {
                                 <td>{parcel.parcelType || "Document"}</td>
                                 <td>{new Date(parcel.createdAt).toLocaleString()}</td>
                                 <td>${parcel.totalCost || 0}</td>
-                                <td>
-                                    {parcel.payment_status}
-
-                                    {/* ? (
-                                        <span className="badge badge-success">Paid</span>
-                                    ) : (
-                                        <span className="badge badge-warning">Unpaid</span>
-                                    )} */}
-
-                                </td>
+                        
                                 <td className="flex gap-2">
                                     <button
-                                        className="btn btn-xs btn-error"
+                                        className="btn btn-xs bg-red-700"
                                         onClick={() => handleDelete(parcel._id)}
                                     >
                                         Delete
@@ -90,7 +80,7 @@ const MyPercel = () => {
                                     >
                                         Pay
                                     </button></Link>
-                                    <button className="btn btn-xs btn-secondary">Add</button>
+                                    <button className="btn btn-xs bg-green-400">Add</button>
                                 </td>
                             </tr>
                         ))}
