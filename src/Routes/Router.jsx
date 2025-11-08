@@ -10,11 +10,8 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Payment from "../pages/Dashboard/payment/Payment";
 import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
 import BeRider from "../pages/BeRider/BeRider";
-import ActiveRiders from "../pages/Dashboard/ActiveRiders/ActiveRiders";
-import PendingRiders from "../pages/Dashboard/PendingRiders/PendingRiders";
 import Admin from "../pages/Admin/Admin";
 import Forbidden from "../pages/Forbidden/Forbidden";
-import AssignRider from "../pages/Dashboard/AssignRIder/AssignRider";
 import MyPercel from "../pages/Dashboard/mypercel/MyPercel";
 import Coverage from "../pages/Coverage/Coverage";
 
@@ -78,18 +75,6 @@ const Router = createBrowserRouter([
             {
                 path: 'history',
                 element: <PaymentHistory></PaymentHistory>
-            },
-            {
-                path: 'assign-rider',
-                element: <AssignRider></AssignRider>
-            },
-            {
-                path: 'activeRiders',
-                element: <ActiveRiders></ActiveRiders>
-            },
-            {
-                path: 'pendingRiders',
-                element: <PendingRiders></PendingRiders>
             },
             {
                 path: 'admin',
