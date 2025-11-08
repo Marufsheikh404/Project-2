@@ -1,49 +1,105 @@
-import React from 'react';
+import { useState } from 'react';
 import logo from '../../assets/New folder/logo.png';
-import { Link, NavLink } from 'react-router';
 import useAuth from '../../Hook/useAuth';
+import { NavLink } from 'react-router';
 
 const Navber = () => {
     const { SignOut, users } = useAuth();
+    const [open, setOpen] = useState(false);
 
-    const handleClick = () => {
-        SignOut()
-    };
-    const links = (
-        <>
-            <Link to={'/'}><li className='text-sm font-semibold text-[#919191]'>Home</li></Link>
-            <li className='text-sm font-semibold text-[#919191]'>Services</li>
-            <Link to={'/map'}> <li className='text-sm font-semibold text-[#919191]'>Map</li></Link>
-            <li className='text-sm font-semibold text-[#919191]'>About Us</li>
-            <Link to={'/percel'}><li className='text-sm font-semibold text-[#919191]'>Send-Percel</li></Link>
-            <Link to={'/dashboard'}><li className='text-sm font-semibold text-[#919191]'>Dashboard</li></Link>
-            <Link to={'/rider'}><li className='text-sm font-semibold text-[#919191]'>Be a Rider</li></Link>
-        </>
-    )
+    const navItems = [
+        { to: "/", label: "Home" },
+        { to: "/services", label: "Services" },
+        { to: "/map", label: "Map" },
+        { to: "/about", label: "About" },
+        { to: "/percel", label: "Percel" },
+        { to: "/dashboard", label: "Dashboard" },
+    ];
+
     return (
-        <div className="navbar bg-[FFFFFF] shadow-lg">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        <div className="bg-white shadow-lg px-4 py-2 sticky top-0 z-50">
+
+            {/* Navbar Wrapper */}
+            <div className="flex items-center justify-between lg:grid lg:grid-cols-3">
+
+                {/* Left Side - Hamburger + Logo */}
+                <div className="flex items-center  gap-3">
+                    {/* Hamburger */}
+                    <button onClick={() => setOpen(!open)} className="lg:hidden">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h12M4 18h16" />
+                        </svg>
+                    </button>
+
+                    {/* Logo */}
+                    <div className="flex items-center gap-2">
+                        <img src={logo} alt="logo" className="h-10" />
+                        <h1 className="text-2xl font-bold -translate-x-3 mt-2">Zyntra</h1>
                     </div>
                 </div>
-                <div className='flex items-center'>
-                    <img src={logo} alt="logo" />
-                    <h1 className='text-2xl font-bold mt-3 -translate-x-3'>Profast</h1>
+
+                {/* Center Menu for Desktop */}
+                <div className="hidden lg:flex justify-center">
+                    <ul className="flex gap-6">
+                        {navItems.map(link => (
+                            <NavLink
+                                key={link.to}
+                                to={link.to}
+                                className={({ isActive }) =>
+                                    `font-bold text-sm transition ${isActive ? "text-[#CBEC68]" : "text-gray-600 hover:text-[#CBEC68]"}`
+                                }
+                            >
+                                {link.label}
+                            </NavLink>
+                        ))}
+                    </ul>
                 </div>
+
+                {/* Right Buttons for Desktop */}
+                <div className="hidden lg:flex justify-end gap-3">
+                    {users ? (
+                        <button onClick={SignOut} className="btn text-lg font-semibold rounded-lg">Log Out</button>
+                    ) : (
+                        <NavLink to="/login" className="btn text-lg font-semibold rounded-lg">Sign In</NavLink>
+                    )}
+
+                    <NavLink to="/rider">
+                        <button className="btn bg-[#CAEB66] text-lg font-semibold rounded-lg">Be a Rider</button>
+                    </NavLink>
+                </div>
+
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal gap-6">
-                    {links}
-                </ul>
-            </div>
-            <div className="navbar-end flex gap-4">
-                {
-                    users ? <a onClick={handleClick} className="btn text-lg font-semibold rounded-lg">Log~Out</a> : <NavLink to={'/login'}> <a className="btn text-lg font-semibold rounded-lg">Sign In</a></NavLink>
-                }
-                <a className="btn bg-[#CAEB66] text-lg font-semibold rounded-lg">Be a Rider</a>
-            </div>
+
+            {/* Mobile Dropdown */}
+            {open && (
+                <div className="lg:hidden mt-4 bg-white shadow p-5 rounded-lg flex flex-col gap-5 animate-slideDown">
+
+                    {navItems.map(link => (
+                        <NavLink
+                            key={link.to}
+                            to={link.to}
+                            onClick={() => setOpen(false)}
+                            className={({ isActive }) =>
+                                `font-bold text-lg ${isActive ? "text-[#CBEC68]" : "text-gray-700"}`
+                            }
+                        >
+                            {link.label}
+                        </NavLink>
+                    ))}
+
+                    <div className="border-t pt-4">
+                        {users ? (
+                            <button onClick={SignOut} className="btn w-full text-lg font-semibold rounded-lg">Log Out</button>
+                        ) : (
+                            <NavLink to="/login" className="btn w-full text-lg font-semibold rounded-lg">Sign In</NavLink>
+                        )}
+
+                        <NavLink to="/rider">
+                            <button className="btn w-full mt-2 bg-[#CAEB66] text-lg font-semibold rounded-lg">Be a Rider</button>
+                        </NavLink>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

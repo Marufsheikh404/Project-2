@@ -7,7 +7,7 @@ const Collaspe = () => {
             <SectionTitle title={"Frequently Asked Question (FAQ)"} description={"Enhance posture, mobility, and well-being effortlessly with Posture Pro <br/> Achieve proper alignment, reduce pain, and strengthen your body with ease!"}></SectionTitle>
             <div
                 tabIndex={0}
-                className="bg-[#FFFFFF] border border-gray-200 shadow-lg text-black focus:bg-[#9ac2c2] focus:text-secondary-content collapse"
+                className="bg-[#ddf95f] border border-gray-200 shadow-lg text-black focus:bg-[#9ac2c2] focus:text-secondary-content collapse"
             >
                 <div className="collapse-title font-semibold">How do I create an account?</div>
                 <div className="collapse-content text-sm">
@@ -16,7 +16,7 @@ const Collaspe = () => {
             </div>
             <div
                 tabIndex={0}
-                className="bg-[#FFFFFF] border border-gray-200 shadow-lg text-black focus:bg-[#9ac2c2] focus:text-secondary-content collapse"
+                className="bg-[#ddf95f] border border-gray-200 shadow-lg text-black focus:bg-[#9ac2c2] focus:text-secondary-content collapse"
             >
                 <div className="collapse-title font-semibold">How do I create an account?</div>
                 <div className="collapse-content text-sm">
@@ -25,7 +25,7 @@ const Collaspe = () => {
             </div>
             <div
                 tabIndex={0}
-                className="bg-[#FFFFFF] border border-gray-200 shadow-lg text-black focus:bg-[#9ac2c2] focus:text-secondary-content collapse"
+                className="bg-[#ddf95f] border border-gray-200 shadow-lg text-black focus:bg-lime-100 focus:text-black collapse"
             >
                 <div className="collapse-title font-semibold">How do I create an account?</div>
                 <div className="collapse-content text-sm">
@@ -34,7 +34,7 @@ const Collaspe = () => {
             </div>
             <div
                 tabIndex={0}
-                className="bg-[#FFFFFF] border border-gray-200 shadow-lg text-black focus:bg-[#9ac2c2] focus:text-secondary-content collapse"
+                className="bg-[#ddf95f] border border-gray-200 shadow-lg text-black focus:bg-[#9ac2c2] focus:text-secondary-content collapse"
             >
                 <div className="collapse-title font-semibold">How do I create an account?</div>
                 <div className="collapse-content text-sm">

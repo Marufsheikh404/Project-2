@@ -14,7 +14,7 @@ const Brand = () => {
         <div className='my-6'>
             <SectionTitle title={"We Have Help Thousands Of Seals Teams"}></SectionTitle>
             <Marquee >
-                <div className='flex items-baseline gap-10'>
+                <div className='flex items-center justify-center gap-10'>
                     <img src={img1} />
                     <img src={img2} />
                     <img src={img3} />

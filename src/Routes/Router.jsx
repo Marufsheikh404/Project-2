@@ -14,7 +14,6 @@ import ActiveRiders from "../pages/Dashboard/ActiveRiders/ActiveRiders";
 import PendingRiders from "../pages/Dashboard/PendingRiders/PendingRiders";
 import Admin from "../pages/Admin/Admin";
 import Forbidden from "../pages/Forbidden/Forbidden";
-import AdminRoute from "./AdminRoute";
 import AssignRider from "../pages/Dashboard/AssignRIder/AssignRider";
 import MyPercel from "../pages/Dashboard/mypercel/MyPercel";
 import Coverage from "../pages/Coverage/Coverage";
