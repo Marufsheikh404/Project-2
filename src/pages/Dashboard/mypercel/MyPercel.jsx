@@ -49,7 +49,7 @@ const MyPercel = () => {
                 <table className="table w-full table-zebra">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Title</th>
                             <th>Type</th>
                             <th>Created At</th>

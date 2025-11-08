@@ -237,7 +237,7 @@ export default function ParcelForm() {
 
                         <div>
                             <label className="font-medium">Service Center</label>
-                            <select className="select select-bordered w-full" {...register("receiverServiceCenter", { required: true })}>
+                            <select className="select select-bordered w-full ring-1 ring-[#ddf95f] border-none" {...register("receiverServiceCenter", { required: true })}>
                                 <option value="">Select Service Center</option>
                                 {getCoveredAreas(receiverDistrict).map((area, i) => (
                                     <option key={i} value={area}>{area}</option>
@@ -257,7 +257,7 @@ export default function ParcelForm() {
                     )}
                 </div>
 
-                <button type="submit" className="btn btn-primary w-full">Submit Parcel</button>
+                <button type="submit" className="btn bg-[#ddf95f] w-full">Submit Parcel</button>
             </form>
         </div>
     );

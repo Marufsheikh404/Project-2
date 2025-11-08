@@ -1,4 +1,3 @@
-
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -6,7 +5,7 @@ import { useState } from 'react';
 
 const position = [23.6850, 90.3563]; // Center of Bangladesh
 
-// Optional custom icon (can skip for default)
+// Optional custom icon (default)
 const customIcon = new L.Icon({
     iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
     iconSize: [25, 41],
@@ -39,30 +38,34 @@ const BangladeshMap = ({ serviceCenters }) => {
     };
 
     return (
-        <div className="h-[800px] w-full rounded-lg overflow-hidden shadow-lg relative">
-
+        <div className="relative w-full rounded-lg overflow-hidden shadow-lg">
+            {/* Search bar */}
             <form
                 onSubmit={handleSearch}
-                className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000] w-full max-w-md px-4 flex bg-gray-400"
+                className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000] w-[90%] max-w-md flex bg-gray-500 rounded-md overflow-hidden"
             >
                 <input
                     type="text"
                     placeholder="Search district..."
-                    className="flex-1 px-4 py-2 border rounded-l-md outline-none"
+                    className="flex-1 text-white px-4 py-2 outline-none"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
                 />
                 <button
                     type="submit"
-                    className="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700"
+                    className="bg-[#ddf95f] font-semibold text-black px-4 py-2  transition-colors"
                 >
                     Go
                 </button>
             </form>
 
-
-            {/* map container */}
-            <MapContainer center={position} zoom={8} scrollWheelZoom={false} className="h-full w-full z-0">
+            {/* Map container */}
+            <MapContainer
+                center={position}
+                zoom={8}
+                scrollWheelZoom={false}
+                className="h-[500px] sm:h-[600px] md:h-[700px] w-full"
+            >
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -70,17 +73,19 @@ const BangladeshMap = ({ serviceCenters }) => {
 
                 <FlyToDistrict coords={activeCoords} />
 
-                {
-                    serviceCenters.map((center, index) => <Marker
+                {serviceCenters.map((center, index) => (
+                    <Marker
                         key={index}
                         position={[center.latitude, center.longitude]}
-                        icon={customIcon}>
+                        icon={customIcon}
+                    >
                         <Popup autoOpen={center.district === activeDistrict}>
-                            <strong>{center.district}</strong><br />
+                            <strong>{center.district}</strong>
+                            <br />
                             {center.covered_area.join(', ')}
                         </Popup>
-                    </Marker>)
-                }
+                    </Marker>
+                ))}
             </MapContainer>
         </div>
     );
