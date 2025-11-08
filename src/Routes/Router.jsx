@@ -11,7 +11,6 @@ import Payment from "../pages/Dashboard/payment/Payment";
 import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
 import BeRider from "../pages/BeRider/BeRider";
 import Admin from "../pages/Admin/Admin";
-import Forbidden from "../pages/Forbidden/Forbidden";
 import MyPercel from "../pages/Dashboard/mypercel/MyPercel";
 import Coverage from "../pages/Coverage/Coverage";
 
@@ -40,10 +39,6 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute><PercelFrom></PercelFrom></PrivateRoute>,
                 loader: (() => fetch('/warehouses.json'))
             },
-            {
-                path: 'forbidden',
-                element: <Forbidden></Forbidden>
-            }
         ]
     },
     {

@@ -1,37 +1,21 @@
 import { useForm } from "react-hook-form";
-import useAuth from "../../Hook/useAuth";
-import axiosPublic from "../../Hook/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAuth from "../../Hook/useAuth"; // if needed
 
 const BeRider = () => {
-    const { users } = useAuth();
-    const axios = axiosPublic;
+    const { users } = useAuth(); // jodi auth theke name/email ante chao
+    const { register, handleSubmit, reset } = useForm();
 
-    const { register, handleSubmit, reset } = useForm({
-        defaultValues: {
-            name: users?.displayName || "",
-            email: users?.email || "",
-        },
-    });
-
-    const onSubmit = async (data) => {
-        const sendData = {
-            ...data,
-            status: "pending",
-            created_at: new Date().toISOString(),
-        };
-
-        const res = await axios.post("/riders", sendData);
-        if (res.data.insertedId) {
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Your request has been submitted",
-                showConfirmButton: false,
-                timer: 1500,
-            });
-            reset();
-        }
+    const onSubmit = (data) => {
+        console.log("Form Data:", data);
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your request has been submitted",
+            showConfirmButton: false,
+            timer: 1500,
+        });
+        reset();
     };
 
     return (
@@ -51,7 +35,7 @@ const BeRider = () => {
                             {...register("name", { required: true })}
                             className="input input-bordered text-black ring-1 ring-[#ddf95f]"
                             defaultValue={users?.displayName || ""}
-                            readOnly={users?.displayName ? true : false}
+                            readOnly={!!users?.displayName}
                             placeholder="Enter your name"
                         />
                     </div>
@@ -64,7 +48,7 @@ const BeRider = () => {
                             {...register("email", { required: true })}
                             className="input input-bordered ring-1 ring-[#ddf95f]"
                             defaultValue={users?.email || ""}
-                            readOnly={users?.email ? true : false}
+                            readOnly={!!users?.email}
                             placeholder="Enter your email"
                         />
                     </div>
@@ -126,13 +110,13 @@ const BeRider = () => {
                     </div>
                 </div>
 
-                {/* Warehouse (Full Row) */}
+                {/* Warehouse */}
                 <div className="form-control md:col-span-2">
                     <label className="label">Which Warehouse You Work?</label>
                     <input
                         {...register("warehouse", { required: true })}
                         type="text"
-                        className="input  w-full ring-1 ring-[#ddf95f] border-none"
+                        className="input w-full ring-1 ring-[#ddf95f]"
                         placeholder="Enter warehouse name"
                     />
                 </div>
