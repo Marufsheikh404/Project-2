@@ -16,6 +16,7 @@ import PendingRiders from "../pages/Dashboard/PendingRiders/PendingRiders";
 import Admin from "../pages/Admin/Admin";
 import Forbidden from "../pages/Forbidden/Forbidden";
 import AdminRoute from "./AdminRoute";
+import AssignRider from "../pages/Dashboard/AssignRIder/AssignRider";
 
 
 
@@ -72,6 +73,10 @@ const Router = createBrowserRouter([
             {
                 path: 'history',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path:'assign-rider',
+                element:<AdminRoute><AssignRider></AssignRider></AdminRoute>
             },
             {
                 path: 'activeRiders',
