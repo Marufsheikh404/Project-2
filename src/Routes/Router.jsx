@@ -13,6 +13,8 @@ import BeRider from "../pages/BeRider/BeRider";
 import Admin from "../pages/Admin/Admin";
 import MyPercel from "../pages/Dashboard/mypercel/MyPercel";
 import Coverage from "../pages/Coverage/Coverage";
+import PricingCalculator from "../pages/PricingCalculator/PricingCalculator";
+import About from "../pages/About/About";
 
 
 
@@ -28,6 +30,14 @@ const Router = createBrowserRouter([
             {
                 path: 'rider',
                 element: <BeRider></BeRider>
+            },
+            {
+                path:'PricingCalculator',
+                element:<PricingCalculator></PricingCalculator>
+            },
+            {
+                path:'about',
+                element:<About></About>
             },
             {
                 path: 'map',

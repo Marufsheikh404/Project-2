@@ -9,7 +9,7 @@ const Navber = () => {
 
     const navItems = [
         { to: "/", label: "Home" },
-        { to: "/services", label: "Services" },
+        { to: "/PricingCalculator", label: "Pricing" },
         { to: "/map", label: "Map" },
         { to: "/about", label: "About" },
         { to: "/percel", label: "Percel" },

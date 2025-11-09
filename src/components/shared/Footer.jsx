@@ -26,21 +26,20 @@ const Footer = () => {
                         <h1 className='text-2xl font-bold -translate-x-3 mt-2'>Zyntra</h1>
                     </div>
                     <p className="font-bold text-sm md:text-base max-w-xs md:max-w-md">
-                        Enjoy fast, reliable parcel delivery with real-time tracking and
-                        <br />
-                        zero hassle. From personal packages to business shipments — we deliver on time, every time.
+                        Enjoy fast, reliable parcel delivery with real-time <br /> tracking and
+                        zero hassle. From personal packages to <br />  business shipments — we deliver on time, every time.
                     </p>
                 </aside>
 
                 {/* Links */}
-                <ul className='flex flex-wrap justify-center md:justify-start gap-4 text-center md:text-left'>
+                <ul className='flex  justify-center md:justify-start gap-4 text-center md:text-left -translate-x-6'>
                     {links}
                 </ul>
 
                 {/* Social Icons */}
                 <nav>
-                    <div className="flex gap-4 justify-center md:justify-start">
-                        <CiLinkedin size={30} />
+                    <div className="flex gap-2 justify-center md:justify-start">
+                        <CiLinkedin size={30}  />
                         <CiFacebook size={30} />
                         <LuTwitter size={30} />
                         <FiYoutube size={30} />
