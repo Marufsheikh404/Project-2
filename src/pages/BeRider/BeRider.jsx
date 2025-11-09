@@ -22,7 +22,7 @@ const BeRider = () => {
         <div className="max-w-3xl mx-auto mt-10 p-6 shadow-lg rounded-lg bg-base-200">
             <h2 className="text-xl font-bold mb-6">Rider Information Form</h2>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form data-aos="zoom-in-up" onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 {/* Left Column */}
                 <div className="space-y-4">

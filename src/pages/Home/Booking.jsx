@@ -11,7 +11,7 @@ const Booking = () => {
     return (
         <div>
             <h1 className='text-3xl font-bold text-[#03373D] translate-x-6'>How It Works?</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 bg-[#f8fafc] rounded-xl">
+            <div data-aos="zoom-in" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 bg-[#f8fafc] rounded-xl">
                 {books.map((book, index) => (
                     <div
                         key={index}

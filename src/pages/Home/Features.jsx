@@ -27,7 +27,7 @@ const features = [
 const Features = () => {
     return (
         <div className="bg-[#F5F7F8] py-8 px-2">
-            <div className="flex flex-col gap-6">
+            <div data-aos="zoom-in-left" className="flex flex-col gap-6">
                 {features.map(({ id, icon, title, text }) => (
                     <div
                         key={id}

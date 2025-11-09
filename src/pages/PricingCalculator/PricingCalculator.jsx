@@ -23,7 +23,7 @@ const PricingCalculator = () => {
 
             <h2 className="text-2xl font-semibold text-center mb-10">Calculate Your Cost</h2>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 max-w-md mx-auto">
+            <form data-aos="zoom-in-up" onSubmit={handleSubmit(onSubmit)} className="space-y-5 max-w-md mx-auto">
                 <div className="form-control">
                     <label className="label text-sm font-medium">Parcel type</label>
                     <select className="select select-bordered w-full ring-1 ring-[#ddf95f] border-none" {...register("parcel", { required: true })}>

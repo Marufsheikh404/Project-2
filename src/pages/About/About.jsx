@@ -3,7 +3,7 @@
 const About = () => {
     return (
         <div className="bg-gray-100 min-h-screen py-16 px-4 sm:px-6 lg:px-8 flex justify-center items-start">
-            <div className="bg-white rounded-lg shadow-xl p-8 max-w-4xl w-full">
+            <div data-aos="zoom-in-up" className="bg-white rounded-lg shadow-xl p-8 max-w-4xl w-full">
                 <h1 className="text-5xl font-bold text-green-800 mb-8">About Us</h1>
                 <p className="text-lg text-gray-700 mb-12 max-w-2xl">
                     Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal

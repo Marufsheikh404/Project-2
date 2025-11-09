@@ -2,7 +2,7 @@ import RImage from '../../assets/New folder/location-merchant.png';
 import BkImage from '../../assets/New folder/Frame 2087326212.png'
 const InfoCard = () => {
     return (
-        <div style={{backgroundImage: `url(${BkImage})`}} className="bg-[#F5F7F8] bg-cover rounded-2xl shadow-lg my-5 hover:shadow-2xl border border-gray-100 p-8 flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div data-aos="zoom-out-right" style={{backgroundImage: `url(${BkImage})`}} className="bg-[#F5F7F8] bg-cover rounded-2xl shadow-lg my-5 hover:shadow-2xl border border-gray-100 p-8 flex flex-col md:flex-row items-center md:items-start gap-8">
 
             {/* Left Side */}
             <div className="flex-1 text-center md:text-left">
