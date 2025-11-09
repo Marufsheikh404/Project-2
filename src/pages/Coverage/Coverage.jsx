@@ -3,7 +3,6 @@ import BangladeshMap from './BangledeshMap';
 
 const Coverage = () => {
     const serviceCenters = useLoaderData();
-
     return (
         <div className="max-w-6xl mx-auto bg-gray-200 shadow-2xl rounded-md px-4 py-12">
             {/* Header */}

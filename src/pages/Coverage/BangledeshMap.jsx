@@ -29,11 +29,11 @@ const BangladeshMap = ({ serviceCenters }) => {
     const handleSearch = (e) => {
         e.preventDefault();
         const district = serviceCenters.find(d =>
-            d.district.toLowerCase().includes(searchText.toLowerCase())
+           ( d?.district || d?.District || "").toLowerCase().includes(searchText.toLowerCase())
         );
         if (district) {
-            setActiveCoords([district.latitude, district.longitude]);
-            setActiveDistrict(district.district);
+            setActiveCoords([district.latitude ?? district.lat, district.longitude ?? district.lon]);
+            setActiveDistrict(district.district ?? district.District);
         }
     };
 
@@ -73,19 +73,25 @@ const BangladeshMap = ({ serviceCenters }) => {
 
                 <FlyToDistrict coords={activeCoords} />
 
-                {serviceCenters.map((center, index) => (
-                    <Marker
-                        key={index}
-                        position={[center.latitude, center.longitude]}
-                        icon={customIcon}
-                    >
-                        <Popup autoOpen={center.district === activeDistrict}>
-                            <strong>{center.district}</strong>
-                            <br />
-                            {center.covered_area.join(', ')}
-                        </Popup>
-                    </Marker>
-                ))}
+                {Array.isArray(serviceCenters) && serviceCenters.length > 0 ? (
+                    serviceCenters.map((center, index) => (
+                        <Marker
+                            key={index}
+                            position={[center.latitude, center.longitude]}
+                            icon={customIcon}
+                        >
+                            <Popup autoOpen={center.district === activeDistrict}>
+                                <strong>{center.district}</strong>
+                                <br />
+                                {Array.isArray(center.covered_area)
+                                    ? center.covered_area.join(', ')
+                                    : center.covered_area || 'N/A'}
+                            </Popup>
+                        </Marker>
+                    ))
+                ) : (
+                    <p className="text-center text-gray-500">No service centers available</p>
+                )}
             </MapContainer>
         </div>
     );
