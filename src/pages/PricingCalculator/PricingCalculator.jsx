@@ -1,8 +1,7 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
-export default function PricingCalculator() {
+const PricingCalculator = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = (data) => {
@@ -13,7 +12,6 @@ export default function PricingCalculator() {
             draggable: true
         });
     };
-
     return (
         <div className="w-full max-w-5xl mx-auto py-12 px-6">
             <h1 className="text-4xl font-semibold text-green-900 mb-4">Pricing Calculator</h1>
@@ -66,4 +64,6 @@ export default function PricingCalculator() {
             </form>
         </div>
     );
-}
+};
+
+export default PricingCalculator;
