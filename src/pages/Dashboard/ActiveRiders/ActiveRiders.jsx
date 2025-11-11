@@ -21,7 +21,11 @@ const ActiveRiders = () => {
         fetchActiveRiders();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return (
+        <div className='flex items-center justify-center min-h-screen'>
+            <span className="loading loading-ring loading-xl"></span>
+        </div>
+    );
 
     return (
         <div className="overflow-x-auto">

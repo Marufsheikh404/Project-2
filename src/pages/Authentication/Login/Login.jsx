@@ -40,7 +40,7 @@ const Login = () => {
                         <h1 className='text-2xl font-bold mt-4 -translate-x-3'>Profast</h1>
                     </div>
                     <div className="card-body">
-                        <form onSubmit={handleSubmit(onSubmit)} className="fieldset">
+                        <form onSubmit={handleSubmit(onSubmit)} className="fieldset mr-10 lg:mr-0">
                             <label className="label">Email</label>
                             <input type="email" {...register('email')} className="input" placeholder="Email" />
                             <label className="label">Password</label>

@@ -1,19 +1,16 @@
-import React from 'react';
 import { Outlet } from 'react-router';
-import authImg from '../assets/New folder/authImage.png'
+import loginAnimation from '../animations/register.json'
+import Lottie from 'lottie-react';
 
 const AuthLayout = () => {
     return (
         <div>
-            <div className="card card-side max-h-screen h-full shadow-sm">
+            <div className="card card-side flex flex-col lg:flex-row max-h-screen h-full shadow-sm overflow-x-hidden">
                 <div className="card-body flex-1">
                     <Outlet></Outlet>
                 </div>
                 <div className='flex-1'>
-                    <img 
-                        className='w-96 h-96 flex justify-center translate-y-12'
-                        src={authImg }
-                        alt="Movie" />
+                    <Lottie style={{width:500, height:500 , marginTop:60, marginRight:40}} animationData={loginAnimation}></Lottie>
                 </div>
             </div>
         </div>

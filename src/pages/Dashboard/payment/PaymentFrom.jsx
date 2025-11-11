@@ -20,7 +20,11 @@ const PaymentFrom = ({ percelId }) => {
         }
     });
 
-    if (isPending) return 'Loading...';
+    if (isPending) return (
+        <div className='flex items-center justify-center min-h-screen'>
+            <span className="loading loading-ring loading-xl"></span>
+        </div>
+    );
 
     const amount = percelIfo.totalCost;
 
